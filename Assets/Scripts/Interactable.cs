@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private UnityEvent OnInteract = null;
     private bool playerInRange = false;
 
-    private bool ShouldBeActive {
+    protected bool ShouldBeActive {
         get {
             if ((showInSpecificLoop && RoomManager.instance.CurrentLoop != loopToShowIn)) return false;
             foreach (var item in requiredItems) {
@@ -18,6 +18,12 @@ public class Interactable : MonoBehaviour
                     return false;
             }
             return true;
+        }
+    }
+
+    protected virtual bool ShouldBeTriggered {
+        get {
+            return ShouldBeActive;
         }
     }
 
@@ -40,14 +46,14 @@ public class Interactable : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!ShouldBeActive) return;
+        if (!ShouldBeTriggered) return;
 
         playerInRange = true;
         PlayerManager.instance.OnObjectChange(true);
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if (!ShouldBeActive) return;
+        if (!ShouldBeTriggered) return;
 
         playerInRange = false;
         PlayerManager.instance.OnObjectChange(false);

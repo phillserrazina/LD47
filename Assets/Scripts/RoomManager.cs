@@ -4,7 +4,7 @@ public class RoomManager : MonoBehaviour
 {
     // VARIABLES
     private Room[] allRooms;
-    private Room currentRoom { get { return allRooms[currentRoomIndex]; } }
+    public Room CurrentRoom { get { return allRooms[currentRoomIndex]; } }
     private int currentRoomIndex = 1;
 
     public static RoomManager instance { get; private set; }
@@ -19,7 +19,7 @@ public class RoomManager : MonoBehaviour
 
     private void Start() {
         allRooms = GetComponentsInChildren<Room>();
-        currentRoom.DisableTriggers();
+        CurrentRoom.DisableTriggers();
 
         CurrentLoop = 0;
         highestLoop = 0;
@@ -27,7 +27,7 @@ public class RoomManager : MonoBehaviour
 
     // Methods
     public void OnRoomChange(int index) {
-        currentRoom.ReenableTriggers();
+        CurrentRoom.ReenableTriggers();
 
         currentRoomIndex += index;
         if (currentRoomIndex < 0) currentRoomIndex = allRooms.Length-1;

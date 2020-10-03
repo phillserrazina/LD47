@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2072c7839e5f6cc449ad81f9f85f69ae, type: 3}
+  m_Name: Second Door
+  m_EditorClassIdentifier: 
+  content:
+  - requiredLoops: 0
+    currentLine: -1
+    loop: 2
+    lines:
+    - Yeah, right, you're still stuck... Sorry about that!
+    - It's just... I haven't had a friend in so long!
+    - What? You don't care about my feelings?
+    - Well, that's rude... just play with me for a bit, alright?
+    - Okay, well, I totally wouldn't check -2 if I were you.
+    myEvent: 
+    item: {fileID: 0}
+  - requiredLoops: 2
+    currentLine: -1
+    loop: -2
+    lines:
+    - Did you know each loop is the same as moving one year in time?
+    - I was born in loop -12, promoted to this job in loop 2.
+    - You... you don't care? Yeah, alright.
+    - It's gonna take you at least 10 years to find the next step anyway.
+    myEvent: GiveItemToPlayer
+    item: {fileID: 11400000, guid: cfb8d1c3a941fc64796c68b20a837354, type: 2}

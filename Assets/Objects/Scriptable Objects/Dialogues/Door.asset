@@ -21,6 +21,8 @@ MonoBehaviour:
     - Oh! A newcomer! Hi!! Welcome to The Loop!
     - Right, so, you're, huh... stuck... Kinda hard to explain...
     - Just meet me at loop 2!
+    myEvent: 
+    item: {fileID: 0}
   - requiredLoops: 2
     currentLine: -1
     loop: 2
@@ -29,6 +31,8 @@ MonoBehaviour:
     - Isn't it great??
     - Oh! Someone's calling me over at 1!
     - Meet me there!
+    myEvent: 
+    item: {fileID: 0}
   - requiredLoops: 2
     currentLine: -1
     loop: 1
@@ -37,4 +41,6 @@ MonoBehaviour:
     - Where were we? Ah, right, The Loop!
     - That's... that's it. It's a loop.
     - What? You want out? Why would you want that?
-    - Whatever, just start by looking in 4 then.
+    - Whatever, just start by looking in 5 then.
+    myEvent: GiveItemToPlayer
+    item: {fileID: 11400000, guid: 9aa662782cfbfc84285c29cab9fd779d, type: 2}

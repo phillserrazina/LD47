@@ -17,6 +17,12 @@ public class Pickable : Interactable
         }
     }
 
+    protected override bool ShouldBeTriggered {
+        get {
+            return ShouldBeActive && CanBePicked;
+        }
+    }
+
     // METHODS
     public void Pickup() {
         if (!CanBePicked) return;
@@ -27,7 +33,12 @@ public class Pickable : Interactable
             }
         }
 
-        PlayerInventory.instance.Add(myItem);
+        if (myItem != null) {
+            PlayerInventory.instance.Add(myItem);
+            RoomManager.instance.CurrentRoom.TriggerItemText("Picked up " + myItem.itemName);
+        }
+        
+        PlayerManager.instance.OnObjectChange(false);
         Destroy(gameObject);
     }
 }

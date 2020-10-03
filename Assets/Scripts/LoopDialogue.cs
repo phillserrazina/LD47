@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName="Loop Dialogue", fileName="New Loop Dialogue")]
 public class LoopDialogue : ScriptableObject {
@@ -11,6 +12,8 @@ public class LoopDialogueObject {
     public int currentLine = -1;
     public int loop;
     [SerializeField] [TextArea(1, 3)] private string[] lines = null;
+    public string myEvent;
+    public ItemSO item;
 
     public bool IsAvailable() {
         if (!RoomManager.instance.HasVisited(requiredLoops)) {

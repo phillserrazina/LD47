@@ -11,9 +11,13 @@ public class PlayerManager : MonoBehaviour
     private float cooldown = 0f;
     private bool inRangeOfObject = false;
 
+    public Animator animator { get; private set; }
+
     // EXECUTION MOVEMENT
     private void Awake() {
         movement = GetComponent<PlayerMovement>();
+        animator = GetComponentInChildren<Animator>();
+
         instance = this;
     }
 

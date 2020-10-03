@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float horDirection = 0f;
 
     private Rigidbody2D rb;
+    private bool lookingLeft = true;
 
     // EXECUTION FUNCTIONS
     private void Start() {
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
+        PlayerManager.instance.animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+
         GetInput();
     }
 
@@ -24,9 +27,22 @@ public class PlayerMovement : MonoBehaviour
     // METHODS
     private void GetInput() {
         horDirection = Input.GetAxisRaw("Horizontal") * movementSpeed;
+
+        if (lookingLeft && horDirection > 0)
+            Flip();
+        else if (!lookingLeft && horDirection < 0)
+            Flip();
     }
 
     private void MovementHandle() {
         rb.velocity = new Vector2(horDirection * Time.fixedDeltaTime, rb.velocity.y);
+    }
+
+    private void Flip() {
+        var newScale = PlayerManager.instance.animator.gameObject.transform.localScale;
+        newScale.x *= -1f;
+        PlayerManager.instance.animator.gameObject.transform.localScale = newScale;
+
+        lookingLeft = !lookingLeft;
     }
 }

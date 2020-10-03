@@ -32,26 +32,31 @@ public class SceneText : MonoBehaviour
         if (myDialogue == null) return;
         if (!dialogueMap.ContainsKey(RoomManager.instance.CurrentLoop)) return;
 
-        if (!dialogueMap[RoomManager.instance.CurrentLoop].IsAvailable()) return;
+        var mapLoop = dialogueMap[RoomManager.instance.CurrentLoop];
+
+        if (!mapLoop.IsAvailable()) return;
 
         var next = "Default";
 
         if (gameObject.activeInHierarchy) {
             if (!dialogueMap.ContainsKey(RoomManager.instance.CurrentLoop)) return;
-            next = dialogueMap[RoomManager.instance.CurrentLoop].NextLine();
+            next = mapLoop.NextLine();
             
             if (myText.text == next) {
+                if (!string.IsNullOrEmpty(dialogueMap[RoomManager.instance.CurrentLoop].myEvent))
+                    Invoke(dialogueMap[RoomManager.instance.CurrentLoop].myEvent, 0f);
                 animator.Play("OnDisable");
                 dialogueMap.Remove(RoomManager.instance.CurrentLoop);
 
                 return;
             }
-            
+
             myText.text = next;
             return;
         }
 
-        myText.text = dialogueMap[RoomManager.instance.CurrentLoop].NextLine();
+        myText.text = mapLoop.NextLine();
+        if (mapLoop.item != null) dialogueItem = mapLoop.item;
         gameObject.SetActive(true);
 
         animator.Play("OnEnable");
@@ -63,4 +68,20 @@ public class SceneText : MonoBehaviour
 
         animator.Play("OnEnable");
     }
+
+    public void SwitchDialogues(LoopDialogue newDialogue) {
+        myDialogue = newDialogue;
+
+        if (myDialogue != null) {
+            myDialogue = ScriptableObject.Instantiate(myDialogue);
+            dialogueMap.Clear();
+
+            foreach (var dobj in myDialogue.content) {
+                dialogueMap.Add(dobj.loop, dobj);
+            }
+        }
+    }
+
+    public ItemSO dialogueItem;
+    public void GiveItemToPlayer() => PlayerInventory.instance.Add(dialogueItem);
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e228a760196dccd459561e14d24ad431, type: 3}
-  m_Name: Key03
+  m_Name: Key_05_01
   m_EditorClassIdentifier: 
-  itemName: Chest Key (Labeled 3)
-  icon: {fileID: 21300000, guid: 8d99021f60c1a81489ab4530549117be, type: 3}
+  itemName: Chest Key 1 (Labeled 5)
+  icon: {fileID: 0}
