@@ -2,15 +2,15 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    private PlayerMovement player;
+    // VARIABLES
+    private PlayerManager player;
 
-    private void Start() {
-        player = FindObjectOfType<PlayerMovement>();
-    }
+    // EXECUTION FUNCTIONS
+    private void Start() => player = PlayerManager.instance;
 
     private void LateUpdate() {
         var newPos = player.transform.position;
-        newPos.y = 0.5f;
+        newPos.y = 1.5f;
         newPos.z = -10f;
         transform.position = newPos;
     }

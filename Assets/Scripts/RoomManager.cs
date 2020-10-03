@@ -8,6 +8,11 @@ public class RoomManager : MonoBehaviour
     private int currentRoomIndex = 1;
 
     public static RoomManager instance { get; private set; }
+    public int CurrentLoop { get; private set; }
+
+    [SerializeField] private SceneText[] sceneTexts = null;
+    private int highestLoop = -1000;
+    public bool HasVisited(int loop) { return loop <= highestLoop; }
 
     // EXECUTION FUNCTIONS
     private void Awake() => instance = this;
@@ -15,8 +20,12 @@ public class RoomManager : MonoBehaviour
     private void Start() {
         allRooms = GetComponentsInChildren<Room>();
         currentRoom.DisableTriggers();
+
+        CurrentLoop = 0;
+        highestLoop = 0;
     }
 
+    // Methods
     public void OnRoomChange(int index) {
         currentRoom.ReenableTriggers();
 
@@ -40,5 +49,13 @@ public class RoomManager : MonoBehaviour
             lastChild.transform.SetAsFirstSibling();
             lastChild.transform.position = firstChild.transform.position - offset;
         }
+    }
+
+    public void ChangeLoop(int val) {
+        CurrentLoop += val;
+        if (CurrentLoop > highestLoop) highestLoop = CurrentLoop;
+        UIManager.instance.UpdateLoopText(CurrentLoop);
+
+        foreach (var st in sceneTexts) st.gameObject.SetActive(false);
     }
 }

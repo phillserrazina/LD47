@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2072c7839e5f6cc449ad81f9f85f69ae, type: 3}
+  m_Name: Door
+  m_EditorClassIdentifier: 
+  content:
+  - requiredLoops: 0
+    currentLine: -1
+    loop: 0
+    lines:
+    - Hm?
+    - Oh! A newcomer! Hi!! Welcome to The Loop!
+    - Right, so, you're, huh... stuck... Kinda hard to explain...
+    - Just meet me at loop 2!
+  - requiredLoops: 2
+    currentLine: -1
+    loop: 2
+    lines:
+    - Do you understand what's happening yet?
+    - Isn't it great??
+    - Oh! Someone's calling me over at 1!
+    - Meet me there!
+  - requiredLoops: 2
+    currentLine: -1
+    loop: 1
+    lines:
+    - So sorry about that.
+    - Where were we? Ah, right, The Loop!
+    - That's... that's it. It's a loop.
+    - What? You want out? Why would you want that?
+    - Whatever, just start by looking in 4 then.
