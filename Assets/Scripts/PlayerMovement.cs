@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     // METHODS
     private void GetInput() {
-        horDirection = Input.GetAxisRaw("Horizontal") * movementSpeed;
+        horDirection = Input.GetAxisRaw("Horizontal") * movementSpeed * (Input.GetKey(KeyCode.LeftShift) ? 3 : 1);
 
         if (lookingLeft && horDirection > 0)
             Flip();

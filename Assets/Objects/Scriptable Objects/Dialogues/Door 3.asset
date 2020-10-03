@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2072c7839e5f6cc449ad81f9f85f69ae, type: 3}
+  m_Name: Door 3
+  m_EditorClassIdentifier: 
+  content:
+  - requiredLoops: 5
+    currentLine: -1
+    loop: 5
+    lines:
+    - Right... I'm still keeping you here... but that was an easy riddle though,
+      wasn't it?
+    - The last person to come in here wasn't the smartest, so I had to dumb it down
+      a bit.
+    - They came in on loop 94, I believe. People from the future aren't that bright.
+    - They walked all the way to loop 150 to find a hidden treasure or whatever.
+      Something about easter?
+    - Anyway! Walk back to loop 0, I have a surprise for you!
+    myEvent: 
+    item: {fileID: 0}
+  - requiredLoops: 5
+    currentLine: -1
+    loop: 0
+    lines:
+    - Welcome back!
+    - I wanna play a little game.
+    - If you haven't noticed yet, you're in a loop. The Loop!
+    - The room with the doors is the middle room. Then you have the left room and
+      the right room.
+    - (I'd write down this next bit, if I were you)
+    - M0 L1 R-1 M2
+    - Come back to this door once you've figured it out. Have fun!!
+    myEvent: GiveItemToPlayer
+    item: {fileID: 11400000, guid: 61339d61efe16c742bb90f877d8cd81b, type: 2}

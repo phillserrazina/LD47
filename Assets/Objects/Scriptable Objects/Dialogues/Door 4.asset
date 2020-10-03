@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2072c7839e5f6cc449ad81f9f85f69ae, type: 3}
+  m_Name: Door 4
+  m_EditorClassIdentifier: 
+  content:
+  - requiredLoops: 0
+    currentLine: -1
+    loop: 0
+    lines:
+    - Alright buddy, I'm gonna let you out.
+    - Not because the dev ran out of time and ideas or anything... *cough*
+    - But I'm gonna miss you, pal.
+    - I hope you enjoyed The Loop!
+    myEvent: EndGame
+    item: {fileID: 0}
