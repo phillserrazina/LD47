@@ -2,6 +2,7 @@
 Project created for the 47th Ludum Dare Game Jam where the team was "Stuck in a Loop"!
 
 **Ludum Dare submission:** https://ldjam.com/events/ludum-dare/47/the-loop-1
+
 **Itch.io link:** https://phillserrazina.itch.io/the-loop
 
 ## WARNING
