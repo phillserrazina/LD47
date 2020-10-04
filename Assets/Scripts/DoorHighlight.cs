@@ -3,8 +3,16 @@
 public class DoorHighlight : MonoBehaviour
 {
     // VARIABLES
-    private int loop = 0;
-    public void SetLoop(int l) => loop = l;
+    [SerializeField] private Sprite originalSprite = null;
+    [SerializeField] private Sprite activeSprite = null;
+
+    [SerializeField] private SpriteRenderer spriteRenderer = null;
+
+    private int loop = 1000;
+    public void SetLoop(int l) {
+        loop = l;
+        AudioManager.instance.Play("DoorOn");
+    }
 
     [SerializeField] private GameObject lightObject = null;
 
@@ -15,5 +23,6 @@ public class DoorHighlight : MonoBehaviour
 
     private void Update() {
         lightObject.SetActive(RoomManager.instance.CurrentLoop == loop);
+        spriteRenderer.sprite = RoomManager.instance.CurrentLoop == loop ? activeSprite : originalSprite;
     }
 }

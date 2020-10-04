@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,17 @@ public class UIManager : MonoBehaviour
         UpdateLoopText(0);
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene("MainMenu");
+    }
+
     // METHODS
     public void UpdateLoopText(int val) => currentLoopText.text = val.ToString();
+
+    public void TriggerInitLight() => DoorHighlight.instance.SetLoop(0);
+
+    public void Menu() => SceneManager.LoadScene("MainMenu");
 }

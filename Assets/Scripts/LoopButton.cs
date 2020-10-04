@@ -33,6 +33,7 @@ public class LoopButton : MonoBehaviour
 
         activated.Add(info);
         ButtonManager.instance.ReceiveInfo(info);
+        AudioManager.instance.Play("ButtonOn");
     }
 
     public void ResetButton() {

@@ -38,6 +38,8 @@ public class SceneText : MonoBehaviour
 
         var next = "Default";
 
+        AudioManager.instance.Play("GodSound" + Random.Range(1, 7).ToString());
+
         if (gameObject.activeInHierarchy) {
             if (!dialogueMap.ContainsKey(RoomManager.instance.CurrentLoop)) return;
             next = mapLoop.NextLine();
@@ -90,4 +92,6 @@ public class SceneText : MonoBehaviour
 
     public int lightLoop;
     private void SetLightLoop() => DoorHighlight.instance.SetLoop(lightLoop);
+
+    private void EndGame() => UIManager.instance.GetComponent<Animator>().Play("Final");
 }

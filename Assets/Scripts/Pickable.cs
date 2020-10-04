@@ -36,6 +36,7 @@ public class Pickable : Interactable
         if (myItem != null) {
             PlayerInventory.instance.Add(myItem);
             RoomManager.instance.CurrentRoom.TriggerItemText("Picked up " + myItem.itemName);
+            AudioManager.instance.Play("Pickup");
         }
         
         PlayerManager.instance.OnObjectChange(false);
