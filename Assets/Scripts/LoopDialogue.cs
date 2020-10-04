@@ -13,7 +13,9 @@ public class LoopDialogueObject {
     public int loop;
     [SerializeField] [TextArea(1, 3)] private string[] lines = null;
     public string myEvent;
+    public bool setDoorLight;
     public ItemSO item;
+    public int doorLoop;
 
     public bool IsAvailable() {
         if (!RoomManager.instance.HasVisited(requiredLoops)) {

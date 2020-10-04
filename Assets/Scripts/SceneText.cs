@@ -43,8 +43,10 @@ public class SceneText : MonoBehaviour
             next = mapLoop.NextLine();
             
             if (myText.text == next) {
-                if (!string.IsNullOrEmpty(dialogueMap[RoomManager.instance.CurrentLoop].myEvent))
-                    Invoke(dialogueMap[RoomManager.instance.CurrentLoop].myEvent, 0f);
+                if (!string.IsNullOrEmpty(mapLoop.myEvent))
+                    Invoke(mapLoop.myEvent, 0f);
+                if (mapLoop.setDoorLight)
+                    SetLightLoop();
                 animator.Play("OnDisable");
                 dialogueMap.Remove(RoomManager.instance.CurrentLoop);
 
@@ -57,6 +59,7 @@ public class SceneText : MonoBehaviour
 
         myText.text = mapLoop.NextLine();
         if (mapLoop.item != null) dialogueItem = mapLoop.item;
+        if (mapLoop.doorLoop != -1000) lightLoop = mapLoop.doorLoop;
         gameObject.SetActive(true);
 
         animator.Play("OnEnable");
@@ -84,4 +87,7 @@ public class SceneText : MonoBehaviour
 
     public ItemSO dialogueItem;
     public void GiveItemToPlayer() => PlayerInventory.instance.Add(dialogueItem);
+
+    public int lightLoop;
+    private void SetLightLoop() => DoorHighlight.instance.SetLoop(lightLoop);
 }

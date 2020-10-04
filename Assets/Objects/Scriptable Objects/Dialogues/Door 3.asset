@@ -26,7 +26,9 @@ MonoBehaviour:
       Something about easter?
     - Anyway! Walk back to loop 0, I have a surprise for you!
     myEvent: 
+    setDoorLight: 1
     item: {fileID: 0}
+    doorLoop: 0
   - requiredLoops: 5
     currentLine: -1
     loop: 0
@@ -40,4 +42,6 @@ MonoBehaviour:
     - M0 L1 R-1 M2
     - Come back to this door once you've figured it out. Have fun!!
     myEvent: GiveItemToPlayer
+    setDoorLight: 1
     item: {fileID: 11400000, guid: 61339d61efe16c742bb90f877d8cd81b, type: 2}
+    doorLoop: 1000

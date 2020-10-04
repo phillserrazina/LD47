@@ -53,6 +53,7 @@ public class ButtonManager : MonoBehaviour
 
         PlayerInventory.instance.Remove(triggerItem);
         onSuccessEvent?.Invoke();
+        DoorHighlight.instance.SetLoop(0);
     }
 
     private IEnumerator FailCoroutine() {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Interactable : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private ItemSO[] requiredItems = null;
     [SerializeField] private UnityEvent OnInteract = null;
     private bool playerInRange = false;
+    private Light2D myLight;
 
     protected bool ShouldBeActive {
         get {
@@ -32,10 +34,12 @@ public class Interactable : MonoBehaviour
     // EXECUTION FUNCTIONS
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        myLight = GetComponentInChildren<Light2D>();
     }
 
     private void Update() {
         spriteRenderer.enabled = ShouldBeActive;
+        myLight.enabled = ShouldBeActive;
 
         if (!playerInRange) return;
     	

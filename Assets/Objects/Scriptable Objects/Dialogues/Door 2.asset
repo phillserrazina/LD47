@@ -23,7 +23,9 @@ MonoBehaviour:
     - Well, that's rude... just play with me for a bit, alright?
     - Okay, well, I totally wouldn't check -2 if I were you.
     myEvent: 
+    setDoorLight: 1
     item: {fileID: 0}
+    doorLoop: -2
   - requiredLoops: 2
     currentLine: -1
     loop: -2
@@ -33,4 +35,6 @@ MonoBehaviour:
     - You... you don't care? Yeah, alright.
     - It's gonna take you at least 10 years to find the next step anyway.
     myEvent: GiveItemToPlayer
+    setDoorLight: 1
     item: {fileID: 11400000, guid: cfb8d1c3a941fc64796c68b20a837354, type: 2}
+    doorLoop: 1000
