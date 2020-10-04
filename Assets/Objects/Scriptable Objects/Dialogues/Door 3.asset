@@ -39,7 +39,7 @@ MonoBehaviour:
     - The room with the doors is the middle room. Then you have the left room and
       the right room.
     - (I'd write down this next bit, if I were you)
-    - M0 L1 R-1 M2
+    - M0 L1 R-1 R2
     - Come back to this door once you've figured it out. Have fun!!
     myEvent: GiveItemToPlayer
     setDoorLight: 1
