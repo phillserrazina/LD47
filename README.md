@@ -1,5 +1,5 @@
 # The Loop - Ludum Dare 47
-Project created for the 47th Ludum Dare Game Jam where the team was "Stuck in a Loop"!
+Project created for the 47th Ludum Dare Game Jam where the theme was "Stuck in a Loop"!
 
 **Ludum Dare submission:** https://ldjam.com/events/ludum-dare/47/the-loop-1
 
