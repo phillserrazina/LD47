@@ -8,10 +8,13 @@ public class CameraFollow : MonoBehaviour
     // EXECUTION FUNCTIONS
     private void Start() => player = PlayerManager.instance;
 
-    private void LateUpdate() {
+    private void FixedUpdate() {
         var newPos = player.transform.position;
         newPos.y = 1.5f;
         newPos.z = -10f;
-        transform.position = newPos;
+
+        var smoothPos = Vector3.Lerp(transform.position, newPos, 0.125f);
+
+        transform.position = smoothPos;
     }
 }
